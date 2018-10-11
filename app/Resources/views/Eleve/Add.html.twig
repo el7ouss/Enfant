@@ -1,0 +1,125 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+
+{% block title %}
+    <title>Inscription </title>
+{% endblock title %}
+
+{% block PLUGIN %}
+{% endblock %}
+
+{% block content %}
+    <div class="col s6 m12 l12">
+        <h5>Inscription</h5>
+        <div class="card-panel">
+            <div class="row ">
+                {{ form_start(form, {'method': 'post', 'action': path('Eleve_Add')}) }}
+                {{ form_errors(form) }}
+                <div class="col m6">
+
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            {{ form_widget(form.nom) }}
+                            <i class="card-content red-text" >{{ form_errors(form.nom) }}</i>
+                            <label for="nom" class="center-align">Nom de l'éléve</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            {{ form_widget(form.prenom) }}
+                            <i class="card-content red-text" >{{ form_errors(form.prenom) }}</i>
+                            <label for="prenom" class="center-align">Prenom de l'éléve</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-cake  prefix"></i>
+                            <input type="date" {{ form_widget(form.dateNaiss) }}
+                            <i class="card-content red-text" >{{ form_errors(form.dateNaiss) }}</i>
+                            <label for="dateNaiss" class="center-align"></label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person prefix"></i>
+                            {{ form_widget(form.nomPere) }}
+                            <i class="card-content red-text" >{{ form_errors(form.nomPere) }}</i>
+                            <label for="nom" class="center-align">Nom du pére</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person prefix"></i>
+                            {{ form_widget(form.prenomPere) }}
+                            <i class="card-content red-text" >{{ form_errors(form.prenomPere) }}</i>
+                            <label for="prenom" class="center-align">Prenom du pére</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-communication-phone prefix prefix"></i>
+                            {{ form_widget(form.numtelPere) }}
+                            <i class="card-content red-text" >{{ form_errors(form.numtelPere) }}</i>
+                            <label for="numtel" class="center-align">Numéro de téléphone du pére</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m6">
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-action-face-unlock prefix"></i>
+                            {{ form_widget(form.nomMere) }}
+                            <i class="card-content red-text" >{{ form_errors(form.nomMere) }}</i>
+                            <label for="nom" class="center-align">Nomdu mére </label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-action-face-unlock prefix"></i>
+                            {{ form_widget(form.prenomMere) }}
+                            <i class="card-content red-text" >{{ form_errors(form.prenomMere) }}</i>
+                            <label for="prenom" class="center-align">Prenom du mére</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-communication-phone prefix prefix"></i>
+                            {{ form_widget(form.numtelMere) }}
+                            <i class="card-content red-text" >{{ form_errors(form.numtelMere) }}</i>
+                            <label for="numtel" class="center-align">Numéro de téléphone du mére</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-group-add prefix prefix"></i>
+                            <p></p>
+                            {{ form_widget(form.groupe) }}
+                            <i class="card-content red-text" >{{ form_errors(form.groupe) }}</i>
+                            <label for="groupe" class="center-align">Groupe </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi-editor-insert-photo prefix prefix"><br></i>
+                            <p></p>
+                            <label for="image" class="center-align"><p></p></label>
+                            {{ form_widget(form.image) }}
+                            <i class="card-content red-text" >{{ form_errors(form.image) }}</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s12">
+                        <input type="submit" class="btn waves-effect waves-light col s6"
+                               value="Ajouter un eleve" a href="{{ path('Eleve_list') }}"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

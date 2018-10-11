@@ -1,0 +1,53 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+
+{% block title %}
+    <title>Ajout d'un paiement </title>
+{% endblock title %}
+
+{% block PLUGIN %}
+{% endblock %}
+
+{% block content %}
+    <div class="col s6 m12 l12">
+    <div class="card-panel">
+        <h5>Ajouter le paiement </h5>
+        <div class="row ">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="col m6">
+
+                <div class="row ">
+                    <div class="input-field col s6">
+                        <i class="mdi-editor-attach-money prefix"></i>
+                        <p></p>
+
+                        {{ form_widget(form.montant )}}
+                        <p></p><i class="card-content red-text" >{{ form_errors(form.montant) }}</i>
+
+                        <label for="montant" class="center-align">Le Montant </label>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s6">
+                        <i class="mdi-action-today prefix"><p><br></p></i>
+                        <p></p><br>
+                        {{ form_widget(form.mois) }}<br>
+                        <p><p><br></p>
+                        <i class="card-content red-text" >{{ form_errors(form.mois) }}</i>
+                        <label for="mois" class="center-align">Le mois  </label>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s12">
+                        <input type="submit" class="btn waves-effect waves-light col s6"
+                               value="Ajouter un paiement"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,121 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+
+{% block title %}
+    <title>Modifier un éléve</title>
+{% endblock title %}
+
+{% block PLUGIN %}
+
+{% endblock %}
+{% block content %}
+    <div class="col s6 m12 l12">
+        <h5>Modifier un éléve </h5>
+        <div class="card-panel">
+            <div class="row ">
+                {{form_start(form) }}
+                {{ form_errors(form) }}
+                <div class="col s12">
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.nom) }}</i>
+                            {{ form_widget(form.nom, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="nom" class="center-align">Nom </label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.prenom) }}</i>
+                            {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="prenom" class="center-align">Prenom</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-editor-insert-invitation  prefix"></i>
+                            <i class="card-content red-text" ></i>
+                            <input type="date" {{ form_errors(form.dateNaiss) }}
+                            {{ form_widget(form.dateNaiss, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="dateNaiss" class="center-align"></label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.nomPere) }}</i>
+                            {{ form_widget(form.nomPere, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="nom" class="center-align">Nom du pére</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.prenomPere) }}</i>
+                            {{ form_widget(form.prenomPere, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="nom" class="center-align">Prénom du pére </label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-communication-phone prefix prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.numtelPere) }}</i>
+                            {{ form_widget(form.numtelPere, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="numtel" class="center-align">Numéro de téléphone du pére </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6 m12 l12">
+
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.nomMere) }}</i>
+                            {{ form_widget(form.nomMere, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="nom" class="center-align">Nom du mére</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.prenomMere) }}</i>
+                            {{ form_widget(form.prenomMere, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="nom" class="center-align">Prénom du mére </label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-communication-phone prefix prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.numtelMere) }}</i>
+                            {{ form_widget(form.numtelMere, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="numtel" class="center-align">Numéro de téléphone du mére </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi-editor-insert-photo"><br></i>
+                            <label for="image" class="center-align"><p></p></label>
+                            {{ form_widget(form.image) }}
+                            <i class="card-content red-text" >{{ form_errors(form.image) }}</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form_widget(form.update) }}
+                    </div>
+                </div>
+                </form>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l6">
+        <div class="card-panel">
+            <img height="250" width="100%" src="{{ asset('uploads/Eleve/'~form.vars.value.image) }}"/>
+        </div>
+    </div>
+    {{ form_end(form) }}
+    </div>
+{% endblock %}

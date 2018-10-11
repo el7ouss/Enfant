@@ -1,0 +1,66 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+
+{% block title %}
+    <title>Ajout d'une adhesion </title>
+{% endblock title %}
+
+{% block PLUGIN %}
+{% endblock %}
+
+{% block content %}
+    <div class="col s6 m12 l12">
+    <div class="card-panel">
+        <h5>Ajouter une adhesion</h5>
+        <div class="row ">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="col m6">
+
+                <div class="row ">
+                    <div class="input-field col s6">
+                        <p></p>
+
+                        {{ form_widget(form.type) }}
+                        <p></p><i class="card-content red-text" >{{ form_errors(form.type) }}</i>
+
+                        <label for="type" class="center-align">Type d'adhesion </label>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s6">
+                        <p></p>
+                        {{ form_widget(form.typePaiement) }}
+                        <i class="card-content red-text" >{{ form_errors(form.typePaiement) }}</i>
+                        <label for="typePaiement" class="center-align">Type de paiement </label>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s6">
+                        {{ form_widget(form.montant) }}
+                        <i class="card-content red-text" >{{ form_errors(form.montant) }}</i>
+                        <label for="montant" class="center-align">Montant </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="enable">Adhésion enable or disable</label>
+                    </div>
+                    <div class="input-field col s12">
+                        {{ form_widget(form.enable ) }}
+                        <i class="card-content red-text" >{{ form_errors(form.enable) }}</i>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s12">
+                        <input type="submit" class="btn waves-effect waves-light col s6"
+                               value="Ajouter une adhesion"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

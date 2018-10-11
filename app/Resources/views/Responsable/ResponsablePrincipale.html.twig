@@ -1,0 +1,66 @@
+{% extends "Layout.html.twig" %}
+{% block content %}
+
+        <div id="card-stats">
+            <div class="row">
+                <div class="col s12 m6 l3">
+                    <a href="{{ path("Personnel_list") }}">
+                        <div class="card">
+                            <div class="card-content green white-text">
+                                <br><br>
+                                <p class="card-stats-title"><i class="mdi-social-people-outline"></i>Gestion de Personnel</p>
+                                <br><br>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col s12 m6 l3">
+                    <a href="{{ path("Eleve_list") }}">
+                        <div class="card">
+                            <div class="card-content green white-text">
+                                <br><br>
+                                <p class="card-stats-title"><i class="mdi-social-school "></i>Gestion des éléves</p>
+                                <br><br>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col s12 m6 l3">
+                    <a href="{{ path("Eleve_Add") }}">
+                        <div class="card">
+                            <div class="card-content green white-text">
+                                <br><br>
+                                <p class="card-stats-title"><i class="mdi-social-person-add"></i>Inscriptions</p>
+
+                                <br><br>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col s12 m6 l3">
+                    <a href="{{ path('Groupe_list') }}">
+                        <div class="card">
+                            <div class="card-content green white-text">
+                                <br><br>
+                                <p class="card-stats-title"><i class="mdi-social-group"></i>Groupes</p>
+                                <br><br>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col s12 m6 l3">
+                    <a href="{{ path('Actualite_list') }}">
+                        <div class="card">
+                            <div class="card-content green white-text">
+                                <br><br>
+                                <p class="card-stats-title"><i class="mdi-maps-layers"></i>Actualités</p>
+                                <br><br>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+{% endblock %}

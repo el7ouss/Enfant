@@ -1,0 +1,83 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+
+{% block title %}
+    <title>Ajout d'un personnel </title>
+{% endblock title %}
+
+{% block PLUGIN %}
+{% endblock %}
+
+{% block content %}
+    <div class="col s6 m12 l12">
+        <div class="card-panel">
+            <h5>Ajouter un personnel</h5>
+            <div class="row ">
+                {{ form_start(form, {'method': 'post', 'action': path('Personnel_Add')}) }}
+                {{ form_errors(form) }}
+                <div class="col m6">
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            {{ form_widget(form.CIN) }}
+                            <i class="card-content red-text" >{{ form_errors(form.CIN) }}</i>
+                            <label for="CIN" class="center-align">CIN </label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            {{ form_widget(form.nom) }}
+                            <i class="card-content red-text" >{{ form_errors(form.nom) }}</i>
+                            <label for="nom" class="center-align">Nom </label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            {{ form_widget(form.prenom) }}
+                            <i class="card-content red-text" >{{ form_errors(form.prenom) }}</i>
+                            <label for="prenom" class="center-align">Prenom</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-editor-insert-invitation  prefix"></i>
+                            <input type="date" {{ form_widget(form.dateNaiss) }}
+                            <i class="card-content red-text" >{{ form_errors(form.dateNaiss) }}</i>
+                            <label for="dateNaiss" class="center-align"></label>
+                        </div>
+                    </div>
+
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-communication-phone prefix prefix"></i>
+                            {{ form_widget(form.numtel) }}
+                            <i class="card-content red-text" >{{ form_errors(form.numtel) }}</i>
+                            <label for="numtel" class="center-align">Numéro de téléphone </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m6">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi-editor-insert-photo"><br></i>
+                            <label for="image" class="center-align"><p></p></label>
+                            {{ form_widget(form.image) }}
+                            <i class="card-content red-text" >{{ form_errors(form.image) }}</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s12">
+                        <input type="submit" class="btn waves-effect waves-light col s6"
+                               value="Ajouter un personnel" a href="{{ path('Personnel_list') }}"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

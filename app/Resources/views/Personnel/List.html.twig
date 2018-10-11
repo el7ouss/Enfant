@@ -1,0 +1,73 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+{% block title %}
+    <title>Liste du personnel</title>
+{% endblock title %}
+{% block PLUGIN %}
+    <link href="{{ asset('Admin/js/plugins/prism/prism.css') }}" type="text/css" rel="stylesheet"
+          media="screen,projection">
+    <link href="{{ asset('Admin/js/plugins/perfect-scrollbar/perfect-scrollbar.css') }}" type="text/css"
+          rel="stylesheet" media="screen,projection">
+    <link href="{{ asset('Admin/js/plugins/data-tables/css/jquery.dataTables.min.css') }}" type="text/css"
+          rel="stylesheet" media="screen,projection">
+{% endblock %}
+
+{% block content %}
+    <div id="table-datatables">
+        <h5>Liste des personnels</h5>
+        <div class="row">
+            <div class="col s12 m10 l12">
+                <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Numéro de téléphone</th>
+                        <th>Salaire</th>
+                        <th>Option</th>
+                    </tr>
+                    </thead>
+
+                    <tfoot>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Numéro de téléphone</th>
+                        <th>Salaire</th>
+                        <th>Option</th>
+                    </tr>
+                    </tfoot>
+
+                    <tbody>
+                    {% for personnel in personnels %}
+                        <tr>
+                            <td><img height="50" width="50" src="{{ asset('uploads/Personnel/'~personnel.image) }}"/></td>
+                            <td>{{ personnel.nom }}</td>
+                            <td>{{ personnel.prenom }}</td>
+                            <td>{{ personnel.numTel }}</td>
+                            <td>
+                                <a href="{{ path('SalairePersonnel_list', { 'id': personnel.id }) }}" class="waves-effect waves-light btn-flat "><i class="mdi-editor-attach-money"></i></a>
+                            </td>
+                            <td>
+                                <a href="{{ path('Personnel_Update', { 'id': personnel.id}) }}" class="waves-effect waves-light btn-flat ">
+                                    <i class="mdi-editor-border-color right"></i></a>
+                                <a href="{{ path('Personnel_Delete', { 'id': personnel.id }) }}" class="waves-effect waves-light btn-flat ">
+                                    <i class="mdi-action-delete left"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Floating Action Button -->
+    <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
+        <a href="{{ path("Personnel_Add") }}" class="btn-floating blue btn-large">
+            <i class="mdi-content-add"></i>
+        </a>
+    </div>
+    <!-- Floating Action Button -->
+{% endblock %}

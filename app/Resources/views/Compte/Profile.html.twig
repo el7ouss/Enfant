@@ -1,0 +1,58 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+
+{% block title %}
+    <title>Profile</title>
+{% endblock title %}
+
+{% block PLUGIN %}
+
+{% endblock %}
+{% block content %}
+    <!--start container-->
+    <div class="container">
+        <div id="profile-page" class="section">
+            <!-- profile-page-header -->
+            <div id="profile-page-header" class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ asset('Admin/images/user-profile-bg.jpg')}}" alt="user background">
+                </div>
+                <figure class="card-profile-image">
+                    <img src="{{ asset('uploads/User/'~app.user.image) }}" height="53" width="53" alt="profile image" class="circle z-depth-2 responsive-img activator">
+                </figure>
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col s3 offset-s2">
+                            <h4 class="card-title grey-text text-darken-4">{{ app.user.prenom }}  {{ app.user.nom }}</h4>
+                            <p class="medium-small grey-text">{{ app.user.username }}&nbsp;</p>
+                        </div>
+                        <div class="col s2 center-align">
+                            <h4 class="card-title grey-text text-darken-4">{{ app.user.email }}</h4>
+                            <p class="medium-small grey-text">{{ app.user.numTel }}</p>
+                        </div>
+                        <div class="col s2 center-align">
+                            <h4 class="card-title grey-text text-darken-4">&nbsp;</h4>
+                            <p class="medium-small grey-text">&nbsp;</p>
+                        </div>
+                        <div class="col s2 center-align">
+                            <h4 class="card-title grey-text text-darken-4">&nbsp;</h4>
+                            <p class="medium-small grey-text">&nbsp;</p>
+                        </div>
+                        <div class=" col s1 fixed-action-btn right-align horizontal click-to-toggle" style="position: absolute; right: 19px;">
+                            <a class="btn-floating btn-large red">
+                                <i class="mdi-action-face-unlock"></i>
+                            </a>
+                            <ul>
+                                <li><a href="{{ path('Compte_update', { 'id': app.user.id }) }} }}" class="btn-floating green"><i class="mdi-action-perm-identity"></i></a>
+                                </li>
+                                <li><a href="{{ path('Compte_password_change') }}" class="btn-floating blue"><i class="mdi-action-lock-outline"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

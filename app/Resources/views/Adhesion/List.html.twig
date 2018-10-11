@@ -1,0 +1,106 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+{% block title %}
+    <title>Liste d'adhesion de {{ eleve.nom }} {{ eleve.prenom }}</title>
+{% endblock title %}
+{% block PLUGIN %}
+    <link href="{{ asset('Admin/js/plugins/prism/prism.css') }}" type="text/css" rel="stylesheet"
+          media="screen,projection">
+    <link href="{{ asset('Admin/js/plugins/perfect-scrollbar/perfect-scrollbar.css') }}" type="text/css"
+          rel="stylesheet" media="screen,projection">
+    <link href="{{ asset('Admin/js/plugins/data-tables/css/jquery.dataTables.min.css') }}" type="text/css"
+          rel="stylesheet" media="screen,projection">
+
+{% endblock %}
+{% block content %}
+    <div id="table-datatables">
+        <h5>Adhesion de <b>{{ eleve.nom }} {{ eleve.prenom }}</b></h5>
+        <div class="row">
+            <div class="col s12 m10 l12">
+                <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Nom et prenom de l'éléve</th>
+                        <th>Type d'adhesion</th>
+                        <th>Type de paiement</th>
+                        <th>Montant</th>
+                        <th>Historique de paiement</th>
+                        <th>Enable or disable</th>
+                        <th>Option</th>
+                    </tr>
+                    </thead>
+
+                    <tfoot>
+                    <tr>
+                        <th>Nom et prenom de l'éléve</th>
+                        <th>Type d'adhesion</th>
+                        <th>Type de paiement</th>
+                        <th>Montant</th>
+                        <th>Historique de paiement</th>
+                        <th>Enable or disable</th>
+                        <th>Option</th>
+                    </tr>
+                    </tfoot>
+
+                    <tbody>
+                    {% for adhesion in adhesion %}
+                        <tr>
+                            <td>{{ adhesion.eleve.nom }} {{ adhesion.eleve.prenom }}</td>
+                            <td>{{ adhesion.type }}</td>
+                            <td>{{ adhesion.typePaiement }}</td>
+                            <td>{{ adhesion.montant }}</td>
+                            <td>
+                                <a href="{{ path('PaiementAdhesion_list', { 'id': adhesion.id }) }}" class="waves-effect waves-light btn-flat ">
+                                    <i class="mdi-action-history"></i></a>
+                            </td>
+                            <td>
+                                <div class="switch">
+                                    <label>
+                                        Déactiver
+                                        <input data-id="{{ adhesion.id }}" type="checkbox" class="activation"
+                                                {% if adhesion.enable %} checked{% endif %}>
+                                        <span class="lever"></span>
+                                        Activer
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="{{ path('Adhesion_Update', { 'id': adhesion.id}) }}" class="waves-effect waves-light btn-flat ">
+                                    <i class="mdi-editor-border-color right"></i></a>
+                                <a href="{{ path('Adhesion_Delete', { 'id': adhesion.id }) }}" class="waves-effect waves-light btn-flat ">
+                                    <i class="mdi-action-delete left"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Floating Action Button -->
+    <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
+        <a href="{{ path('Adhesion_Add',{'id': eleve.id }) }}" class="btn-floating blue btn-large">
+            <i class="mdi-content-add"></i>
+        </a>
+    </div>
+    <!-- Floating Action Button -->
+
+{% endblock %}
+{% block Scripts %}
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $('.activation').on('change',function () {
+                let id = $(this).data('id');
+                $.ajax({
+                    url: Routing.generate('event_activation', {id: id}),
+                    type: 'POST',
+                    data: {'actif': activation},
+                    dataType: 'json',
+                    success: function (data) {
+                        location.reload();
+                    }
+                });
+            })
+        });
+    </script>
+{% endblock %}

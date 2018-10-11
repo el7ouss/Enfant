@@ -1,0 +1,57 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+
+{% block title %}
+    <title>Ajout d'une séance </title>
+{% endblock title %}
+
+{% block PLUGIN %}
+{% endblock %}
+
+{% block content %}
+    <div class="col s6 m12 l12">
+    <div class="card-panel">
+        <h5>Ajouter les séance</h5>
+        <div class="row ">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="col m6">
+
+                <div class="row ">
+                    <div class="input-field col s6">
+                        <p></p>
+
+                        {{ form_widget(form.jours) }}
+                        <p></p><i class="card-content red-text" >{{ form_errors(form.jours) }}</i>
+
+                        <label for="jours" class="center-align">Les jours </label>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s6">
+                        <p></p>
+                        {{ form_widget(form.dateStart) }}
+                        <i class="card-content red-text" >{{ form_errors(form.dateStart) }}</i>
+                        <label for="dateStart" class="center-align">Commence a  </label>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s6">
+                        {{ form_widget(form.dateEnd) }}
+                        <i class="card-content red-text" >{{ form_errors(form.dateEnd) }}</i>
+                        <label for="dateEnd" class="center-align">Termine a </label>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s12">
+                        <input type="submit" class="btn waves-effect waves-light col s6"
+                               value="Ajouter une séance"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+
+{% block title %}
+    <title>Modifier une séance</title>
+{% endblock title %}
+
+{% block PLUGIN %}
+
+{% endblock %}
+{% block content %}
+    <div class="col s6 m12 l12">
+        <div class="card-panel">
+            <h5>Modifier une séance</h5>
+            <div class="row ">
+                {{form_start(form) }}
+                {{ form_errors(form) }}
+                <div class="col m6">
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <p></p><p></p>
+                            <i class="card-content red-text" >{{ form_errors(form.jours) }}</i>
+                            {{ form_widget(form.jours, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="jours" class="center-align">Jours </label>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <p></p>
+                            <i class="card-content red-text" >{{ form_errors(form.dateStart) }}</i>
+                            {{ form_widget(form.dateStart, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="dateStart" class="center-align">Commance a</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <p></p>
+                            <i class="card-content red-text" >{{ form_errors(form.dateEnd) }}</i>
+                            {{ form_widget(form.dateEnd, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="dateEnd" class="center-align">Termine a</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s12">
+                        {{ form_widget(form.update) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

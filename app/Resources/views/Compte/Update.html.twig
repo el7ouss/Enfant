@@ -1,0 +1,105 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+
+{% block title %}
+    <title>Modifier profile</title>
+{% endblock title %}
+
+{% block PLUGIN %}
+
+{% endblock %}
+{% block content %}
+    <div class="col s6 m12 l12">
+        <div class="card-panel">
+            <h5>Modifier votre profile</h5>
+            <div class="row ">
+                {{form_start(form) }}
+                {{ form_errors(form) }}
+                <div class="col m6">
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.CIN) }}</i>
+                            {{ form_widget(form.CIN, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="CIN" class="center-align">CIN </label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.nom) }}</i>
+                            {{ form_widget(form.nom, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="nom" class="center-align">Nom </label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.prenom) }}</i>
+                            {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="prenom" class="center-align">Prenom</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-editor-insert-invitation  prefix"></i>
+                            <i class="card-content red-text" ></i>
+                            <input type="date" {{ form_errors(form.dateNaiss) }}
+                            {{ form_widget(form.dateNaiss, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="dateNaiss" class="center-align"></label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-communication-phone prefix prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.numtel) }}</i>
+                            {{ form_widget(form.numtel, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="numtel" class="center-align">Numéro de téléphone </label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-communication-email prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.email) }}</i>
+                            <input type="email"{{ form_widget(form.email) }}
+                            <label for="email" class="center-align">Email</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-social-person-outline prefix"></i>
+                            <i class="card-content red-text" >{{ form_errors(form.username) }}</i>
+                            {{ form_widget(form.username) }}
+                            <label for="username" class="center-align">Nom d'utilisateur </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi-editor-insert-photo"><br></i>
+                            <label for="image" class="center-align"><p></p></label>
+                            {{ form_widget(form.image) }}
+                            <i class="card-content red-text" >{{ form_errors(form.image) }}</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m6">
+                    <div class="col s12 m12 l6">
+                        <div class="card-panel">
+                            <img height="250" width="100%" src="{{ asset('uploads/User/'~form.vars.value.image) }}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s12">
+
+                        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" class="btn waves-effect waves-light col s6"
+                               a href="{{ path('Compte_Profile') }}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

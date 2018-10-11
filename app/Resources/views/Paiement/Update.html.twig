@@ -1,0 +1,53 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+
+{% block title %}
+    <title>Modifier un paiement</title>
+{% endblock title %}
+
+{% block PLUGIN %}
+
+{% endblock %}
+{% block content %}
+    <div class="col s6 m12 l12">
+        <div class="card-panel">
+            <h5>Modifier le paiement</h5>
+            <div class="row ">
+                {{form_start(form) }}
+                {{ form_errors(form) }}
+                <div class="col m6">
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-editor-attach-money prefix"></i>
+                            <p></p>
+                            <i class="card-content red-text" >{{ form_errors(form.montant) }}</i>
+                            {{ form_widget(form.montant, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="montant" class="center-align">Montant </label>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="mdi-action-today prefix"><p><br></p></i>
+                            <p></p><br>
+                            <p></p>
+                            <i class="card-content red-text" >{{ form_errors(form.mois) }}</i>
+                            {{ form_widget(form.mois, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="mois" class="center-align">Mois </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s12">
+
+                        <input type="submit" value="Mettre a jour" class="btn waves-effect waves-light col s6"
+                               a href="{{ path('Paiement_list') }}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

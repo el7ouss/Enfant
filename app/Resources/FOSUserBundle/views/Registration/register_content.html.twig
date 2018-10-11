@@ -1,0 +1,112 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block title %}
+    <title>Registration</title>
+{% endblock title %}
+
+<div id="login-page" class="row">
+    <div class="col s12 z-depth-4 card-panel">
+        <div class="row">
+            <div class="input-field col s12 center">
+                <h4>Register</h4>
+                <p class="center">Join to our community now !</p>
+            </div>
+        </div>
+        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register')}) }}
+        <div class="row margin">
+            <div class="input-field col s12">
+                <i class="mdi-social-person-outline prefix"></i>
+                <input id="CIN" type="text" {{ form_widget(form.CIN) }}
+                <label for="CIN" class="center-align">CIN </label>
+            </div>
+        </div>
+        <div class="row margin">
+            <div class="input-field col s12">
+                <i class="mdi-social-person-outline prefix"></i>
+                <input id="nom" type="text"{{ form_widget(form.nom) }}
+                <label for="nom" class="center-align">Nom </label>
+            </div>
+        </div>
+        <div class="row margin">
+            <div class="input-field col s12">
+                <i class="mdi-social-person-outline prefix"></i>
+                <input id="prenom" type="text" {{ form_widget(form.prenom) }}
+                <label for="prenom" class="center-align">Prenom</label>
+            </div>
+        </div>
+        <div class="row margin">
+            <div class="input-field col s12">
+                <i class="mdi-editor-insert-invitation  prefix"></i>
+                <input id="dateNaiss" type="date" {{ form_widget(form.dateNaiss) }}
+                <label for="dateNaiss" class="center-align"></label>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="mdi-communication-phone prefix prefix"></i>
+                    <input id="numtel" type="tel" {{ form_widget(form.numtel) }}
+                    <label for="numtel" class="center-align">Numéro de téléphone </label>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="mdi-communication-email prefix"></i>
+                    <input id="email" type="email" {{ form_widget(form.email) }}
+                    <label for="email" class="center-align">Email</label>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="mdi-social-person-outline prefix"></i>
+                    <input id="username" type="text" {{ form_widget(form.username) }}
+                    <label for="username" class="center-align">Nom d'utilisateur </label>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="input-field col s6">
+                    <i class="mdi-action-lock-outline prefix"></i>
+                    {{ form_widget(form.plainPassword.first) }}
+                    <label for="password"
+                           class="center-align">Password</label>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="input-field col s6">
+                    <i class="mdi-action-lock-outline prefix"></i>
+                    {{ form_widget(form.plainPassword.second) }}
+                    <label for="password2"
+                           class="center-align">Confirme password</label>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="input-field col s6">
+                    <i class="mdi-image-timer-auto prefix prefix"></i>
+                    <p></p>
+                    {{ form_widget(form.roles) }}
+                    <i class="card-content red-text" >{{ form_errors(form.roles) }}</i>
+                    <label for="roles" class="center-align">Role </label>
+                </div>
+            </div>
+            <div class="col m6">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="mdi-editor-insert-photo prefix"><br></i>
+                        <label for="image" class="center-align"><p></p></label>
+                        {{ form_widget(form.image) }}
+                        <i class="card-content red-text" >{{ form_errors(form.image) }}</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="submit" class="btn waves-effect waves-light col s12"
+                       value="{{ 'registration.submit'|trans }}"/>
+            </div>
+            <div class="input-field col s12">
+                <p class="margin center medium-small sign-up">Already have an account? <a
+                            href="{{ path('fos_user_security_login') }}">Login</a></p>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+</div>

@@ -1,0 +1,43 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "Layout.html.twig" %}
+
+{% block title %}
+    <title>Modifier une activité</title>
+{% endblock title %}
+
+{% block PLUGIN %}
+
+{% endblock %}
+{% block content %}
+    <div class="col s6 m12 l12">
+        <div class="card-panel">
+            <h5>Modifier une activité</h5>
+            <div class="row ">
+                {{form_start(form) }}
+                {{ form_errors(form) }}
+                <div class="col m6">
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="card-content red-text" >{{ form_errors(form.libelle) }}</i>
+                            {{ form_widget(form.libelle, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="libelle" class="center-align">libelle </label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s6">
+                            <i class="card-content red-text" >{{ form_errors(form.nbHeure) }}</i>
+                            {{ form_widget(form.nbHeure, {'attr': {'class': 'form-control'}} ) }}
+                            <label for="nbHeure" class="center-align">Nombre d'heure</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="input-field col s12">
+                        {{ form_widget(form.update) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
